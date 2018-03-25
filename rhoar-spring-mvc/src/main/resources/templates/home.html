@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>MVC Mission - Spring Boot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
+    <style>
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            -webkit-transition: .5s;
+            transition: .5s;
+            outline: 0;
+            font-family: 'Open Sans', serif;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>MVC Mission - Spring Boot</h1>
+    <p>
+        This application demonstrates how a Spring Boot application implements a CRUD endpoint to manage <em>fruits</em>.
+        This management interface invokes the CRUD service endpoint, that interact with a PosgreSQL database using JDBC.
+    </p>
+
+    <h1>Form</h1>
+    <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+    <h3>Add a Fruit</h3>
+    <form action="/api/fruits/add" th:action="@{/api/fruits/add}">
+        <div class="row">
+            <div class="col-6"><input type="text" placeholder="Name" ng-model="form.name" size="60"/></div>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+
+    <h3>Fruit List</h3>
+    <div class="row" th:each="fruit in fruits">
+        <div class="col-2" th:text="${fruit.name}"></div>
+        <div class="col-2" th:text="${fruit.weight}"></div>
+    </div>
+</div>
+
+</body>
+</html>
