@@ -2,18 +2,27 @@ package com.example.service;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/api/fruits")
 public class FruitController {
 
+    private List<Fruit> fruits = new ArrayList<>();
+
     @GetMapping
     public String home(Model model) {
-        model.addAttribute("fruits", new Fruit("apple", 1));
+        model.addAttribute("fruits", fruits);     // For the List view
+        model.addAttribute("fruit", new Fruit()); // For the Form
+        return "home";
+    }
 
-        return "index";
+    @PostMapping
+    public String createFruit(@ModelAttribute Fruit fruit, Model model) {
+        fruits.add(fruit);
+        return "redirect:/api/fruits";
     }
 
 }

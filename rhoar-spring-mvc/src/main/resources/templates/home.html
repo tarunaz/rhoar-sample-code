@@ -28,27 +28,30 @@
         This management interface invokes the CRUD service endpoint, that interact with a PosgreSQL database using JDBC.
     </p>
 
-    <h1>Form</h1>
-    <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
-        <p>Id: <input type="text" th:field="*{id}" /></p>
-        <p>Message: <input type="text" th:field="*{content}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
-
-    <h3>Add a Fruit</h3>
-    <form action="/api/fruits/add" th:action="@{/api/fruits/add}">
-        <div class="row">
-            <div class="col-6"><input type="text" placeholder="Name" ng-model="form.name" size="60"/></div>
+    <div class="row">
+        <div class="col-6">
+            <h3>Add a Fruit</h3>
+            <form action="#" th:action="@{/api/fruits}" th:object="${fruit}" method="post">
+                <div class="row">
+                    <div class="col-6"><input id="fruitInput" type="text" placeholder="Name" th:field="*{name}" size="60"/></div>
+                </div>
+                <input type="submit" value="Save"/>
+            </form>
         </div>
-        <input type="submit" value="Save"/>
-    </form>
 
-    <h3>Fruit List</h3>
-    <div class="row" th:each="fruit in fruits">
-        <div class="col-2" th:text="${fruit.name}"></div>
-        <div class="col-2" th:text="${fruit.weight}"></div>
+        <div class="col-6">
+            <h3>Fruit List</h3>
+            <div class="row" th:each="fruit : ${fruits}">
+                <div class="col-2" th:text="${fruit.name}"></div>
+            </div>
+        </div>
     </div>
 </div>
 
+<script type="text/javascript">
+window.onload = function() {
+    document.getElementById("fruitInput").focus()
+}
+</script>
 </body>
 </html>
