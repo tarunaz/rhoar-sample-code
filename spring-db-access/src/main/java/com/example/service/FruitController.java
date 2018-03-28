@@ -22,7 +22,7 @@ public class FruitController {
 
     @GetMapping
     @ResponseBody
-    public List<Fruit> getAll() {
+    public List getAll() {
         return StreamSupport.stream(repository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
