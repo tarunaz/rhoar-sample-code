@@ -33,7 +33,7 @@
 
 		<!-- TODO: Add JPA dependency here -->
 
-		<!-- TODO: ADD Actuator dependency here -->
+		<!-- TODO: Add Actuator dependency here -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,13 +89,13 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<!-- TODO: ADD H2 database dependency here -->
+				<!-- TODO: Add H2 database dependency here -->
 			</dependencies>
 		</profile>
 		<profile>
 			<id>openshift</id>
 			<dependencies>
-				<!-- TODO: ADD PostgreSQL database dependency here -->
+				<!-- TODO: Add PostgreSQL database dependency here -->
 			</dependencies>
 			<build>
 				<plugins>
