@@ -22,7 +22,7 @@ public class FruitController {
 
     @GetMapping
     @ResponseBody
-    public List getAll() {
+    public List<Fruit> getAll() {
         return StreamSupport.stream(repository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
@@ -31,6 +31,23 @@ public class FruitController {
     public String createFruit(@RequestBody(required = false) Fruit fruit) {
         repository.save(fruit);
         return "redirect:/";
+    }
+
+    @GetMapping("/{id}")
+    public Fruit getFruit(@PathVariable("id") Long id) {
+        return repository.findOne(id);
+    }
+
+    @PutMapping("/{id}")
+    public Fruit updateFruit(@PathVariable("id") Long id, @RequestBody(required = false) Fruit fruit) {
+        fruit.setId(id);
+        return repository.save(fruit);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        repository.delete(id);
     }
 
 }
