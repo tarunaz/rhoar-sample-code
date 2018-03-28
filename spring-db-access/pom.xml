@@ -33,7 +33,7 @@
 
 		<!-- TODO: Add JPA dependency here -->
 
-		<!-- TODO: Add Actuator dependency here -->
+		<!-- TODO: ADD Actuator dependency here -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,6 +42,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -84,13 +89,13 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<!-- TODO: Add H2 database dependency here -->
+				<!-- TODO: ADD H2 database dependency here -->
 			</dependencies>
 		</profile>
 		<profile>
 			<id>openshift</id>
 			<dependencies>
-				<!-- TODO: Add PostgreSQL database dependency here -->
+				<!-- TODO: ADD PostgreSQL database dependency here -->
 			</dependencies>
 			<build>
 				<plugins>
@@ -112,5 +117,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
