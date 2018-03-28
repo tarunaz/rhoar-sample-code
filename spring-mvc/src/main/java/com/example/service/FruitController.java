@@ -20,11 +20,17 @@ public class FruitController {
         return "home";
     }
 
-    // TODO POST mapping here
+    // TODO other mappings here
     @PostMapping
     public String createFruit(@ModelAttribute Fruit fruit) {
         fruits.add(fruit);
-        return "redirect:/api/fruits";
+        return "redirect:/fruits";
+    }
+
+    @DeleteMapping("/:id")
+    public String deleteFruit(@PathVariable("id") int fruitId) {
+        fruits.remove(fruitId);
+        return "redirect:/fruits";
     }
 
 }
