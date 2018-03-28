@@ -1,7 +1,5 @@
 package com.example.service;
 
-import com.example.service.service.Fruit;
-import com.example.service.service.FruitRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
