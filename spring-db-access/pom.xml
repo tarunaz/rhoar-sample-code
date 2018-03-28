@@ -65,6 +65,15 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -75,13 +84,13 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<!-- TODO: Add H2 database dependency here -->
+				<!-- TODO: ADD H2 database dependency here -->
 			</dependencies>
 		</profile>
 		<profile>
 			<id>openshift</id>
 			<dependencies>
-				<!-- TODO: Add PostgreSQL database dependency here -->
+				<!-- TODO: ADD PostgreSQL database dependency here -->
 			</dependencies>
 			<build>
 				<plugins>
@@ -103,4 +112,5 @@
 			</build>
 		</profile>
 	</profiles>
+	
 </project>
