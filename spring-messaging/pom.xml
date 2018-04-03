@@ -7,72 +7,42 @@
 	<artifactId>rhoar-training</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
-	<name>rhoar-training</name>
 	<description>RHOAR Training Modules Code Repository</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<spring.boot.version>1.5.9.RELEASE</spring.boot.version>
 		<java.version>1.8</java.version>
 	</properties>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-
-	<!--<dependencyManagement>-->
-	<!--<dependencies>-->
-	<!--<dependency>-->
-	<!--<groupId>me.snowdrop</groupId>-->
-	<!--<artifactId>spring-boot-bom</artifactId>-->
-	<!--<version>${spring-boot.bom.version}</version>-->
-	<!--<type>pom</type>-->
-	<!--<scope>import</scope>-->
-	<!--</dependency>-->
-	<!--</dependencies>-->
-	<!--</dependencyManagement>-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>me.snowdrop</groupId>
+				<artifactId>spring-boot-bom</artifactId>
+				<version>1.5.8.Final-redhat-1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 
-		<!-- TODO: Add web dependencies here -->
+		<!-- TODO: Add JMS dependency here -->
 
-		<!-- TODO: Add JPA dependency here -->
-
-		<!-- TODO: ADD Actuator dependency here -->
-
-		<!-- TODO: ADD MQ dependency here -->
+		<!-- TODO: Add Actuator dependency here -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>1.5.8.RELEASE</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-activemq</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -104,19 +74,7 @@
 
 	<profiles>
 		<profile>
-			<id>local</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<dependencies>
-				<!-- TODO: ADD H2 database dependency here -->
-			</dependencies>
-		</profile>
-		<profile>
 			<id>openshift</id>
-			<dependencies>
-				<!-- TODO: ADD PostgreSQL database dependency here -->
-			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
@@ -137,6 +95,5 @@
 			</build>
 		</profile>
 	</profiles>
-
 
 </project>
