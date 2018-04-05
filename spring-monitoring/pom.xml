@@ -18,26 +18,22 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- <dependency>
+			<dependency>
 				<groupId>me.snowdrop</groupId>
 				<artifactId>spring-boot-bom</artifactId>
 				<version>1.5.8.Final-redhat-1</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency> -->
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 		<!-- TODO: Add Actuator dependency here -->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>1.5.8.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			<version>1.5.8.RELEASE</version>
 		</dependency>
 	</dependencies>
