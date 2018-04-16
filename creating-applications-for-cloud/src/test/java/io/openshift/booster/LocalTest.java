@@ -13,33 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package io.openshift.booster;
-
-import java.net.URL;
 
 import com.jayway.restassured.RestAssured;
 import io.openshift.booster.service.GreetingProperties;
-import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
-import org.arquillian.cube.openshift.impl.enricher.RouteURL;
-import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(Arquillian.class)
-public class OpenShiftIT extends AbstractBoosterApplicationTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class LocalTest extends AbstractBoosterApplicationTest {
 
-    @AwaitRoute(path = "/health")
-    @RouteURL("${app.name}")
-    private URL baseURL;
+    @Value("${local.server.port}")
+    private int port;
+
+    @Autowired
+    private GreetingProperties properties;
 
     @Before
-    public void setup() throws Exception {
-        RestAssured.baseURI = baseURL + "api/greeting";
+    public void beforeTest() {
+        RestAssured.baseURI = String.format("http://localhost:%d/api/greeting", port);
     }
 
     protected GreetingProperties getProperties() {
-        return new GreetingProperties();
+        return properties;
     }
 
 }

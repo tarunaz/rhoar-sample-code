@@ -21,30 +21,33 @@
     <version>1.5.10-15</version>
   </parent>
 
-  <artifactId>booster-crud-spring-boot</artifactId>
+  <artifactId>booster-rest-http-spring-boot</artifactId>
 
   <groupId>io.openshift.booster</groupId>
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>Spring Boot - CRUD Booster</name>
-  <description>Spring Boot - CRUD Booster</description>
+  <name>Spring Boot - HTTP Booster</name>
+  <description>Spring Boot - HTTP Booster</description>
 
-  <properties>
-    <postgresql.version>9.4.1212</postgresql.version>
-  </properties>
   
+
   <dependencies>
+    <!-- Spring Boot Starters -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
     </dependency>
 
     <!-- Testing -->
@@ -53,7 +56,6 @@
       <artifactId>arquillian-junit-standalone</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.arquillian.cube</groupId>
       <artifactId>arquillian-cube-openshift</artifactId>
@@ -72,11 +74,16 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
       <scope>test</scope>
     </dependency>
-   
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>test</scope>
+    </dependency>
+
     <!-- Spring Boot Developer Tools -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -85,63 +92,7 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <classpathDependencyExcludes>
-            <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-openshift</classpathDependencyExclude>
-            <classpathDependencyExclude>org.arquillian.cube:arquillian-cube-kubernetes</classpathDependencyExclude>
-          </classpathDependencyExcludes>
-        </configuration>
-      </plugin>
-    </plugins>
-    <!-- Used only to replace ${db.name} in index.html with the corresponding Database name -->
-    <resources>
-        <resource>
-            <directory>src/main/resources</directory>
-        </resource>
-        <resource>
-            <directory>src/main/resources/static</directory>
-            <filtering>true</filtering>
-            <targetPath>static</targetPath>
-        </resource>
-    </resources>
-  </build>
-
   <profiles>
-    <profile>
-      <id>local</id>
-      <activation>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.h2database</groupId>
-          <artifactId>h2</artifactId>
-          <scope>runtime</scope>
-        </dependency>
-      </dependencies>
-      <properties>
-          <db.name>H2</db.name>
-      </properties>
-    </profile>
-    <profile>
-      <id>openshift</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.postgresql</groupId>
-          <artifactId>postgresql</artifactId>
-          <version>${postgresql.version}</version>
-          <scope>runtime</scope>
-        </dependency>
-      </dependencies>
-      <activation />
-      <properties>
-          <db.name>PostgreSQL</db.name>
-      </properties>
-    </profile>
     <profile>
       <id>openshift-it</id>
       <build>

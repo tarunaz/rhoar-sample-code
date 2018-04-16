@@ -1,141 +1,57 @@
-<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>CRUD Mission - Spring Boot</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
-    <style>
-        input[type=number] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            -webkit-transition: .5s;
-            transition: .5s;
-            outline: 0;
-            font-family: 'Open Sans', serif;
-        }
-    </style>
-    <!-- Load AngularJS -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script type="text/javascript">
-      var app = angular.module("FruitManagement", []);
-
-      //Controller Part
-      app.controller("FruitManagementController", function ($scope, $http) {
-
-        //Initialize page with default data which is blank in this example
-        $scope.fruits = [];
-
-        $scope.form = {
-          id: -1,
-          name: ""
-        };
-
-        //Now load the data from server
-        _refreshPageData();
-
-        //HTTP POST/PUT methods for add/edit fruits
-        $scope.update = function () {
-          var method = "";
-          var url = "";
-          var data = {};
-          if ($scope.form.id == -1) {
-            //Id is absent so add fruits - POST operation
-            method = "POST";
-            url = '/api/fruits';
-            data.name = $scope.form.name;
-          } else {
-            //If Id is present, it's edit operation - PUT operation
-            method = "PUT";
-            url = '/api/fruits/' + $scope.form.id;
-            data.name = $scope.form.name;
-          }
-
-          $http({
-            method: method,
-            url: url,
-            data: angular.toJson(data),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }).then(_success, _error);
-        };
-
-        //HTTP DELETE- delete fruit by id
-        $scope.remove = function (fruit) {
-          $http({
-            method: 'DELETE',
-            url: '/api/fruits/' + fruit.id
-          }).then(_success, _error);
-        };
-
-        //In case of edit fruits, populate form with fruit data
-        $scope.edit = function (fruit) {
-          $scope.form.name = fruit.name;
-          $scope.form.id = fruit.id;
-        };
-
-          /* Private Methods */
-        //HTTP GET- get all fruits collection
-        function _refreshPageData() {
-          $http({
-            method: 'GET',
-            url: '/api/fruits'
-          }).then(function successCallback(response) {
-            $scope.fruits = response.data;
-          }, function errorCallback(response) {
-            console.log(response.statusText);
-          });
-        }
-
-        function _success(response) {
-          _refreshPageData();
-          _clearForm()
-        }
-
-        function _error(response) {
-          console.error(response.statusText);
-        }
-
-        //Clear the form
-        function _clearForm() {
-          $scope.form.name = "";
-          $scope.form.id = -1;
-        }
-      });
-    </script>
+    <meta charset="utf-8">
+    <title>API Level 0 Mission - Spring Boot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body ng-app="FruitManagement" ng-controller="FruitManagementController">
 
+<body>
 <div class="container">
-    <h1>CRUD Mission - Spring Boot</h1>
-    <p>
-        This application demonstrates how a Spring Boot application implements a CRUD endpoint to manage <em>fruits</em>.
-        This management interface invokes the CRUD service endpoint, that interact with a ${db.name} database using JDBC.
-    </p>
-
-    <h3>Add/Edit a fruit</h3>
-    <form ng-submit="update()">
-        <div class="row">
-            <div class="col-6"><input type="text" placeholder="Name" ng-model="form.name" size="60"/></div>
-        </div>
-        <input type="submit" value="Save"/>
-    </form>
-
-    <h3>Fruit List</h3>
     <div class="row">
-        <div class="col-2">Name</div>
-    </div>
-    <div class="row" ng-repeat="fruit in fruits">
-        <div class="col-2">{{ fruit.name }}</div>
-        <div class="col-8"><a ng-click="edit( fruit )" class="btn">Edit</a> <a ng-click="remove( fruit )" class="btn">Remove</a>
-        </div>
+        <div class="sect1">
+<h2 id="_http_booster">HTTP Booster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An example of simple mapping of a business operation to a remote endpoint. By taking this approach, clients use the HTTP protocol as a transport mechanism to call services. Application engineers define the APIs using a broad interpretation of the REST fundamentals, encouraging freedom in design and quick prototyping.</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_greeting_service">Using the greeting service</h3>
+
+</div>
+</div>
+</div>
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="World">
+            </div>
+            <button id="invoke" type="submit" class="btn btn-success">Invoke</button>
+        </form>
+
+        <p class="lead">Result:</p>
+        <pre><code id="greeting-result">Invoke the service to see the result.</code></pre>
     </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#invoke").click(function (e) {
+      var n = $("#name").val() || "World";
+      $.getJSON("/api/greeting?name=" + n, function (res) {
+        $("#greeting-result").text(JSON.stringify(res));
+      });
+      e.preventDefault();
+    });
+  });
+</script>
+
 </body>
+
 </html>

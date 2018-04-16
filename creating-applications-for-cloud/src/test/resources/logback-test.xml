@@ -2,5 +2,4 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml" />
     <logger name="org.hibernate.validator" level="info" /> <!-- Validator prints a lot of debug messages during integration tests -->
-    <logger name="org.jboss.shrinkwrap.resolver" level="error" /> <!-- Lots of warnings -->
 </configuration>

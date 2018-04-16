@@ -14,16 +14,22 @@
  * limitations under the License.
  */
 
-package io.openshift.booster.exception;
+package io.openshift.booster.service;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
-@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-public class UnprocessableEntityException extends RuntimeException {
+@Component
+@ConfigurationProperties("greeting")
+public class GreetingProperties {
 
-    public UnprocessableEntityException(String message) {
-        super(message);
+    private String message = "Hello, %s!";
+
+    public String getMessage() {
+        return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

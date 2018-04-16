@@ -13,43 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package io.openshift.booster.service;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class Greeting {
 
-@Entity
-public class Fruit {
+    private final String content;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String name;
-
-    public Fruit() {
+    public Greeting() {
+        this.content = null;
     }
 
-    public Fruit(String type) {
-        this.name = type;
+    public Greeting(String content) {
+        this.content = content;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public String getContent() {
+        return content;
     }
 }
