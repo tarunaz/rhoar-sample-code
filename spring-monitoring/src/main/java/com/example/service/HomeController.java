@@ -14,12 +14,13 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/")
 public class HomeController {
 
+
     @Autowired
     public HomeController() {
     }
 
     @GetMapping
-    public String home(Model model) {
+    public String home() {
         return "home";
     }
 
