@@ -46,5 +46,25 @@
 		</plugins>
 	</build>
 
+	  <profiles>
+    <profile>
+      <id>openshift-it</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <app.name>${project.artifactId}</app.name>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+      <activation />
+    </profile>
+  </profiles>
+
 
 </project>
