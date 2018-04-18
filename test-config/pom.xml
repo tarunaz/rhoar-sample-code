@@ -58,6 +58,6 @@
 
   <modules>
     <module>greeting-service</module>
-    <module>tests</module>
+    <!-- <module>tests</module> -->
   </modules>
 </project>
