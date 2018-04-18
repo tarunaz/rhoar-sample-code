@@ -55,7 +55,7 @@
     </dependency>
   </dependencies>
 
-  <!-- <build>
+  <build>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -72,9 +72,9 @@
         </configuration>
       </plugin>
     </plugins>
-  </build> -->
+  </build>
 
-  <!-- <profiles>
+  <profiles>
     <profile>
       <id>openshift-it</id>
       <build>
@@ -93,10 +93,10 @@
               <skip>false</skip>
               <profile>aggregate</profile>
             </configuration>
-          </plugin> -->
+          </plugin>
 
           <!-- needed to be able to run the tests in an ephemeral namespace -->
-          <!-- <plugin>
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
             <executions>
@@ -129,5 +129,5 @@
         </plugins>
       </build>
     </profile>
-  </profiles>-->
+  </profiles>
 </project>
