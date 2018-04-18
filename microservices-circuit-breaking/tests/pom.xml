@@ -82,13 +82,13 @@
           <plugin>
             <groupId>io.fabric8</groupId>
             <artifactId>fabric8-maven-plugin</artifactId>
-            <executions>
+            <!-- <executions>
               <execution>
                 <goals>
                   <goal>resource</goal>
                 </goals>
               </execution>
-            </executions>
+            </executions> -->
             <configuration>
               <skip>false</skip>
               <profile>aggregate</profile>
