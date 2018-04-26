@@ -1,4 +1,4 @@
-package io.fabric8.quickstarts.camel.amq;
+package com.example;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
