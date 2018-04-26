@@ -9,8 +9,8 @@ spec:
         # - env:
         #   - name: JAVA_OPTIONS
         #     value: "-Dspring.profiles.active=openshift"
-        env:
-        - name: AMQP_HOST
-          value: broker-amq-amqp
-        - name: SPRING_APPLICATION_JSON
-          value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+        - env:
+          - name: AMQP_HOST
+            value: broker-amq-amqp
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
