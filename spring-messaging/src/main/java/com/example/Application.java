@@ -4,6 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.apache.activemq.jms.pool.PooledConnectionFactory;
+import org.apache.camel.component.amqp.AMQPComponent;
+import org.apache.qpid.jms.JmsConnectionFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @EnableScheduling
