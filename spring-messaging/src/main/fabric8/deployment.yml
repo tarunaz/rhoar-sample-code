@@ -3,9 +3,12 @@ kind: Deployment
 metadata:
   name: ${project.artifactId}
 spec:
+  # TODO: Add Service Account variables
   template:
     spec:
       containers:
         - env:
-          - name: JAVA_OPTIONS
-            value: "-Dspring.profiles.active=openshift"
+          - name: AMQP_HOST
+            value: broker-amq-amqp
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
