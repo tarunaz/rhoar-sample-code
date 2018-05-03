@@ -30,8 +30,8 @@
 
 	<dependencies>
 		<!-- TODO: Add Actuator dependency here -->
-		
-<dependency>
+		<!-- TODO: Add Sleuth dependency here -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
