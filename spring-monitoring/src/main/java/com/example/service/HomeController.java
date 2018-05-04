@@ -15,6 +15,7 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/")
 public class HomeController {
 
+    private static final Log log = LogFactory.getLog(SampleController.class);
 
     @Autowired
     public HomeController() {
