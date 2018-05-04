@@ -23,8 +23,10 @@ public class HomeController {
     @GetMapping
     public String home() {
         // TODO: Add Sleuth logging here
-        
+
         return "home";
     }
+
+    //TODO: Add blank logging function
 
 }
