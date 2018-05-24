@@ -26,8 +26,7 @@ public class HomeController {
         model.addAttribute("count", cache.getCount());
 
         // Only the last 5 for UI purposes
-        List<Ping> messages = cache.getMessages();
-        model.addAttribute("messages", messages.subList(Math.max(messages.size() - 5, 0), messages.size()));
+        model.addAttribute("messages", cache.getMessages());
         return "home";
     }
 
