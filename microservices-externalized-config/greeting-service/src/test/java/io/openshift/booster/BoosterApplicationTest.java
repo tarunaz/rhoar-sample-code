@@ -17,7 +17,7 @@
 package io.openshift.booster;
 
 import com.jayway.restassured.RestAssured;
-import io.openshift.booster.service.GreetingProperties;
+import io.openshift.booster.service.MessageProperties;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,7 +38,7 @@ public class BoosterApplicationTest {
     private int port;
 
     @Autowired
-    private GreetingProperties properties;
+    private MessageProperties properties;
 
     @Before
     public void beforeTest() {
@@ -50,7 +50,7 @@ public class BoosterApplicationTest {
         when().get()
                 .then()
                 .statusCode(200)
-                .body("content", is(String.format(properties.getMessage(), "World")));
+                .body("content", is(String.format(properties.getMessage(), "Banana")));
     }
 
     @Test
