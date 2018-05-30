@@ -60,14 +60,14 @@ public class FruitController {
     }
 
     static class Fruit {
-        private final String name;
+        private final String content;
 
-        public Fruit(String name) {
-            this.name = name;
+        public Fruit(String content) {
+            this.content = content;
         }
 
-        public String getName() {
-            return name;
+        public String getContent() {
+            return content;
         }
     }
 }
