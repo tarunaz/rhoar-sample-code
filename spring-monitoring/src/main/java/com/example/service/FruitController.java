@@ -15,6 +15,9 @@ public class FruitController {
 
     @GetMapping
     public String home(Model model) {
+
+        // TODO: Add Sleuth logging here
+
         model.addAttribute("fruits", fruits);     // For the List view
         model.addAttribute("fruitForm", new Fruit()); // For the Form
         return "home";
@@ -25,4 +28,6 @@ public class FruitController {
         fruits.add(fruit);
         return "redirect:/fruits";
     }
+
+    //TODO: Add blank logging function
 }
