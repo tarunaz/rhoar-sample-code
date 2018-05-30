@@ -51,7 +51,7 @@ public class NameController {
 
     private static final Logger LOG = LoggerFactory.getLogger(NameController.class);
 
-    private static final String theName = "World";
+    private static final String theName = "apple";
 
     private final AtomicBoolean doFail = new AtomicBoolean();
     private final NameServiceWebSockerHandler handler = new NameServiceWebSockerHandler();

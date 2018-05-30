@@ -22,21 +22,21 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.socket.WebSocketHandler;
 
 /**
- * Greeting service controller.
+ * Fruit service controller.
  */
 @RestController
-public class GreetingController {
+public class FruitController {
 
     private final NameService nameService;
     private final CircuitBreakerHandler handler = new CircuitBreakerHandler();
 
-    public GreetingController(NameService nameService) {
+    public FruitController(NameService nameService) {
         this.nameService = nameService;
     }
 
     @RequestMapping("/api/ping")
-    public Greeting getPing() throws Exception {
-        return new Greeting("OK");
+    public Fruit getPing() throws Exception {
+        return new Fruit("OK");
     }
 
     /**
@@ -45,13 +45,13 @@ public class GreetingController {
      * Request to the name service is guarded with a circuit breaker. Therefore if a name service is not available or is too
      * slow to response fallback name is used.
      *
-     * @return Greeting string.
+     * @return Fruit string.
      */
     @RequestMapping("/api/greeting")
-    public Greeting getGreeting() throws Exception {
-        String result = String.format("Hello, %s!", nameService.getName());
+    public Fruit getFruit() throws Exception {
+        String result = String.format("You've picked %s!", nameService.getName());
         handler.sendMessage(nameService.getState());
-        return new Greeting(result);
+        return new Fruit(result);
     }
 
     @Bean
@@ -59,15 +59,15 @@ public class GreetingController {
         return handler;
     }
 
-    static class Greeting {
-        private final String content;
+    static class Fruit {
+        private final String name;
 
-        public Greeting(String content) {
-            this.content = content;
+        public Fruit(String name) {
+            this.name = name;
         }
 
-        public String getContent() {
-            return content;
+        public String getName() {
+            return name;
         }
     }
 }
