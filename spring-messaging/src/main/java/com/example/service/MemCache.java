@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class MemCache {
 
     private AtomicLong counter = new AtomicLong(0);
-    private Queue<Ping> messages = new ArrayDeque<>();
+    private Queue<Fruit> messages = new ArrayDeque<>();
 
     public long getCount() {
         return counter.get();
@@ -19,15 +19,15 @@ public class MemCache {
         counter.incrementAndGet();
     }
 
-    public void addMessage(Ping ping) {
-        this.messages.add(ping);
+    public void addMessage(Fruit fruit) {
+        this.messages.add(fruit);
 
         if(messages.size() > 5) {
             this.messages.remove();
         }
     }
 
-    public List<Ping> getMessages() {
+    public List<Fruit> getMessages() {
         return new ArrayList<>(messages);
     }
 }
