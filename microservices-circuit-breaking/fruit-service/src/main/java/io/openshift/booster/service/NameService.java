@@ -42,7 +42,7 @@ public class NameService {
     }
 
     private String getFallbackName() {
-        return "Fallback";
+        return "banana from fallback";
     }
 
     CircuitBreakerState getState() throws Exception {

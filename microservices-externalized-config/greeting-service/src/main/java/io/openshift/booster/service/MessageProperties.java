@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("greeting")
-public class GreetingProperties {
+public class MessageProperties {
 
     /**
      * This message has to be set in the application.properties file. If application is executed locally, "local" profile is

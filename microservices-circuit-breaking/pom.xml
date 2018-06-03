@@ -37,7 +37,7 @@
   </properties>
 
   <modules>
-    <module>greeting-service</module>
+    <module>fruit-service</module>
     <module>name-service</module>
     <!-- <module>tests</module> -->
   </modules>
