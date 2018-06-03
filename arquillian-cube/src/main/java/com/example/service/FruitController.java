@@ -14,7 +14,7 @@ public class FruitController {
 	
 	  @RequestMapping("/")
 	    String index() {
-	        return "redirect:/api/fruits";
+	        return "redirect:/fruits";
 	    }
 	
 
