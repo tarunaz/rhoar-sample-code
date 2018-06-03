@@ -27,7 +27,7 @@ public class FruitControllerWSTest {
 	@AwaitRoute
 	private URL base;
 
-	@Named("guestbook")
+	@Named("fruits")
 	@ArquillianResource
 	Service fruits;
 
