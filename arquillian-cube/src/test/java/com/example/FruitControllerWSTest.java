@@ -1,6 +1,6 @@
 package com.example;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URL;
 
@@ -9,23 +9,18 @@ import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.jayway.restassured.RestAssured;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import io.fabric8.kubernetes.api.model.v3_1.Service;
 
 @RunWith(Arquillian.class)
 public class FruitControllerWSTest {
 
-	// private String port = "8080";
 
 	@RouteURL("fruit")
 	@AwaitRoute
-	private URL base;
+	private URL route;
 
 	@Named("fruit")
 	@ArquillianResource

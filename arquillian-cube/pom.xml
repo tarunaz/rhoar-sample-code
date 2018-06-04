@@ -95,12 +95,16 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency> <groupId>org.arquillian.cube</groupId> <artifactId>arquillian-cube-docker</artifactId> 
-			<scope>test</scope> </dependency> -->
-
 		<dependency>
 			<groupId>org.arquillian.cube</groupId>
 			<artifactId>arquillian-cube-requirement</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-standalone</artifactId>
+			<version>1.4.0.Final</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
