@@ -23,13 +23,13 @@ public class FruitControllerWSTest {
 
 	// private String port = "8080";
 
-	@RouteURL("rhoar-training")
+	@RouteURL("fruit")
 	@AwaitRoute
 	private URL base;
 
-	@Named("rhoar-training")
+	@Named("fruit")
 	@ArquillianResource
-	Service fruits;
+	Service fruit;
 
 	// @Before
 	// public void setUp() throws Exception {
@@ -39,10 +39,10 @@ public class FruitControllerWSTest {
 	@Test
 	public void shouuldGetAllFruits_Test() {
 
-		assertThat(fruits).isNotNull();
-		assertThat(fruits.getSpec()).isNotNull();
-		assertThat(fruits.getSpec().getPorts()).isNotNull();
-		assertThat(fruits.getSpec().getPorts()).isNotEmpty();
+		assertThat(fruit).isNotNull();
+		assertThat(fruit.getSpec()).isNotNull();
+		assertThat(fruit.getSpec().getPorts()).isNotNull();
+		assertThat(fruit.getSpec().getPorts()).isNotEmpty();
 
 		// int expectedFruitCount = 0;
 		//
