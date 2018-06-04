@@ -47,7 +47,7 @@ public class FruitController {
      *
      * @return Fruit string.
      */
-    <!-- TODO Call name service here -->
+    // TODO Call name service here
 
     @Bean
     public WebSocketHandler getHandler() {

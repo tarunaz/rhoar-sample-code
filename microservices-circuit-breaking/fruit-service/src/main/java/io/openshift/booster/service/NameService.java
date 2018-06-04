@@ -34,13 +34,13 @@ public class NameService {
     private final String nameHost = System.getProperty("name.host", "http://spring-boot-circuit-breaker-name:8080");
     private final RestTemplate restTemplate = new RestTemplate();
 
-    <!-- TODO Add Hystrix command here -->
+    // TODO Add Hystrix command here
 
     public String getName() {
         return restTemplate.getForObject(nameHost + "/api/name", String.class);
     }
 
-    <!-- TODO Add fallback method here -->
+    // TODO Add fallback method here
 
     CircuitBreakerState getState() throws Exception {
         HystrixCircuitBreaker circuitBreaker = HystrixCircuitBreaker.Factory.getInstance(KEY);
