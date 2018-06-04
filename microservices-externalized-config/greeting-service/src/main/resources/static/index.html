@@ -58,7 +58,7 @@
 <script>
   $(document).ready(function () {
     $("#invoke").click(function (e) {
-      var n = $("#name").val() || "World";
+      var n = $("#name").val() || "Banana";
       $.getJSON("/api/greeting?name=" + n, function (res) {
         $("#greeting-result").html(JSON.stringify(res));
       }).fail(function (res) {
