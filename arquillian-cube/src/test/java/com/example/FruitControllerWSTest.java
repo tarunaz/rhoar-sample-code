@@ -23,7 +23,7 @@ public class FruitControllerWSTest {
 
 	// private String port = "8080";
 
-	@RouteURL("fruits")
+	@RouteURL("rhoar-training")
 	@AwaitRoute
 	private URL base;
 
