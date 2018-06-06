@@ -1,10 +1,12 @@
 package com.example;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 import java.net.URL;
 
 import org.arquillian.cube.kubernetes.annotations.Named;
+import org.arquillian.cube.openshift.impl.client.OpenShiftClient;
 import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
@@ -13,10 +15,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import io.fabric8.kubernetes.api.model.v3_1.Service;
+import io.fabric8.kubernetes.api.model.v3_1.ServiceList;
 
 @RunWith(Arquillian.class)
 public class FruitControllerWSTest {
 
+	@ArquillianResource
+	private OpenShiftClient client;
+
+	@ArquillianResource
+	private ServiceList serviceList;
 
 	@RouteURL("fruit")
 	@AwaitRoute
@@ -31,7 +39,7 @@ public class FruitControllerWSTest {
 	// this.base = new URL("http://localhost:" + port + "/");
 	// }
 
-	@Test
+	// @Test
 	public void shouuldGetAllFruits_Test() {
 
 		assertThat(fruit).isNotNull();
@@ -45,6 +53,17 @@ public class FruitControllerWSTest {
 		// + "rest/").asString();
 		//
 		// assertEquals(actualFruitCount, expectedFruitCount);
+	}
+
+	@Test
+	public void testServicesInjection() {
+		assertNotNull(serviceList);
+		assertEquals(1, serviceList.getItems().size());
+		assertEquals("fruit", serviceList.getItems().get(0).getMetadata().getName());
+
+		assertNotNull(fruit);
+		assertEquals("fruit", fruit.getMetadata().getName());
+
 	}
 
 }
