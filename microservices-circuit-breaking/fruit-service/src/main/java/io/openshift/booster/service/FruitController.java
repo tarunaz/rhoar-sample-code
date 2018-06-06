@@ -47,12 +47,7 @@ public class FruitController {
      *
      * @return Fruit string.
      */
-    @RequestMapping("/api/greeting")
-    public Fruit getFruit() throws Exception {
-        String result = String.format("You've picked %s!", nameService.getName());
-        handler.sendMessage(nameService.getState());
-        return new Fruit(result);
-    }
+    // TODO Call name service here
 
     @Bean
     public WebSocketHandler getHandler() {
