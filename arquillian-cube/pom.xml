@@ -19,6 +19,9 @@
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<version.arquillian-cube.bom>1.15.3</version.arquillian-cube.bom>
+		<version.spring-boot.bom>1.5.12.Final-redhat-1<</version.spring-boot.bom>
 	</properties>
 
 	<dependencyManagement>
@@ -26,14 +29,14 @@
 			<dependency>
 				<groupId>me.snowdrop</groupId>
 				<artifactId>spring-boot-bom</artifactId>
-				<version>1.5.12.Final-redhat-1</version>
+				<version>${version.spring-boot.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.arquillian.cube</groupId>
 				<artifactId>arquillian-cube-bom</artifactId>
-				<version>1.15.3</version>
+				<version>${version.arquillian-cube.bom}</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>

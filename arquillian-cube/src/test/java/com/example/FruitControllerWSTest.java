@@ -26,9 +26,9 @@ public class FruitControllerWSTest {
 	@ArquillianResource
 	private ServiceList serviceList;
 
-	@RouteURL("fruit")
-	@AwaitRoute
-	private URL route;
+//	@RouteURL("fruit")
+//	@AwaitRoute
+//	private URL route;
 
 	@Named("fruit")
 	@ArquillianResource
