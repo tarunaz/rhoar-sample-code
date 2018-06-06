@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import java.net.URL;
 
 import org.arquillian.cube.kubernetes.annotations.Named;
-import org.arquillian.cube.openshift.impl.client.OpenShiftClient;
 import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
@@ -16,6 +15,7 @@ import org.junit.runner.RunWith;
 
 import io.fabric8.kubernetes.api.model.v3_1.Service;
 import io.fabric8.kubernetes.api.model.v3_1.ServiceList;
+import io.fabric8.openshift.clnt.v3_1.OpenShiftClient;
 
 @RunWith(Arquillian.class)
 public class FruitControllerWSTest {
