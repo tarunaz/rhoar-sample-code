@@ -5,6 +5,7 @@
 
 	<extension qualifier="openshift">
 	<property name="cube.fmp.build">true</property>
+	<property name="cube.fmp.profiles">openshift</property>
 		<!-- <property name="env.init.enabled">true</property>
 		<property name="namespace.use.current">dev</property>
 		<property name="cube.username">username</property>
