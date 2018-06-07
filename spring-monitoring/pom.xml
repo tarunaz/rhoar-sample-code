@@ -30,7 +30,7 @@
 
 	<dependencies>
 		<!-- TODO: Add Actuator dependency here -->
-		<!-- TODO: Add Sleuth dependency here -->
+		<!-- TODO: Add jaeger dependency here -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +43,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
