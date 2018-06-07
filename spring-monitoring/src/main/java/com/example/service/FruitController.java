@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Autowired;
+// Add trace dependecny here
 
 @Controller
 @RequestMapping("/fruits")
@@ -18,8 +18,7 @@ public class FruitController {
 
     private List<Fruit> fruits = new ArrayList<>();
 
-    @Autowired
-    private Tracer tracer;
+    // Add tracer here
 
 
     @GetMapping
