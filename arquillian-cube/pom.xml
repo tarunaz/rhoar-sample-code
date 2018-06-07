@@ -19,6 +19,9 @@
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<version.arquillian-cube.bom>1.15.3</version.arquillian-cube.bom>
+		<version.spring-boot.bom>1.5.12.Final-redhat-1</version.spring-boot.bom>
 	</properties>
 
 	<dependencyManagement>
@@ -26,14 +29,14 @@
 			<dependency>
 				<groupId>me.snowdrop</groupId>
 				<artifactId>spring-boot-bom</artifactId>
-				<version>1.5.12.Final-redhat-1</version>
+				<version>${version.spring-boot.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.arquillian.cube</groupId>
 				<artifactId>arquillian-cube-bom</artifactId>
-				<version>1.15.3</version>
+				<version>${version.arquillian-cube.bom}</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -83,13 +86,6 @@
 
 		<!--Arquillian Cube Dependencies -->
 		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-standalone</artifactId>
-			<version>1.1.13.Final</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.arquillian.cube</groupId>
 			<artifactId>arquillian-cube-openshift</artifactId>
 			<scope>test</scope>
@@ -105,6 +101,13 @@
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-standalone</artifactId>
 			<version>1.4.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>openshift-client</artifactId>
+			<version>2.2.14</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -135,30 +138,9 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.7.0</version>
-			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+				<version>3.7.0</version> </plugin> -->
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<configuration>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${project.build.outputDirectory}/META-INF/fabric8
-						</additionalClasspathElement>
-					</additionalClasspathElements>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -178,6 +160,32 @@
 								<goals>
 									<goal>resource</goal>
 									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>openshift-it</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<additionalClasspathElements>
+								<additionalClasspathElement>${project.build.outputDirectory}/META-INF/fabric8
+								</additionalClasspathElement>
+							</additionalClasspathElements>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
 								</goals>
 							</execution>
 						</executions>
