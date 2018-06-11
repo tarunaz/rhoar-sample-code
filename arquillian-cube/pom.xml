@@ -114,13 +114,13 @@
 		<dependency>
 			<groupId>org.arquillian.cube</groupId>
 			<artifactId>arquillian-cube-openshift-starter</artifactId>
-			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
+			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
