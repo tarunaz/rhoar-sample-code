@@ -110,6 +110,12 @@
 			<version>2.2.14</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.arquillian.cube</groupId>
+			<artifactId>arquillian-cube-openshift-starter</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -153,16 +159,15 @@
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
 						<version>3.5.38</version>
-						<executions>
-							<execution>
-								<id>fmp</id>
-								<phase>package</phase>
-								<goals>
-									<goal>resource</goal>
-									<goal>build</goal>
-								</goals>
-							</execution>
-						</executions>
+						<!-- <executions> <execution> <id>fmp</id> <phase>package</phase> <goals> 
+							<goal>resource</goal> <goal>build</goal> </goals> </execution> </executions> -->
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
