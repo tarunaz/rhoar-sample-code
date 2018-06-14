@@ -33,11 +33,11 @@ import static io.restassured.RestAssured.given;
 @RunWith(ArquillianConditionalRunner.class)
 public class FruitControllerWSTest {
 
-	@ArquillianResource
-	private OpenShiftClient client;
+//	@ArquillianResource
+//	private OpenShiftClient client;
 
-	@ArquillianResource
-	private ServiceList serviceList;
+//	@ArquillianResource
+//	private ServiceList serviceList;
 
 	@AwaitRoute
 	@RouteURL("${app.name}")
