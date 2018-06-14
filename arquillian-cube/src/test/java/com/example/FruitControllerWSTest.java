@@ -39,7 +39,7 @@ public class FruitControllerWSTest {
 //	private ServiceList serviceList;
 
 	@AwaitRoute
-	@RouteURL("${app.name}")
+	@RouteURL("fruit")
 	private URL baseURL;
 
 	@Before
