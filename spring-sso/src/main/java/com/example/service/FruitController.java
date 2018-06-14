@@ -3,11 +3,15 @@ package com.example.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
 @Controller
 @RequestMapping("/fruits")
 public class FruitController {
 
-	private List fruite = new ArrayList<>();
+	private List fruits = new ArrayList<>();
 
 	@GetMapping
 	public String home(Model model) {
