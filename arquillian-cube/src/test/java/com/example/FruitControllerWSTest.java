@@ -17,12 +17,11 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import com.jayway.restassured.RestAssured;
 
 import io.fabric8.kubernetes.api.model.v3_1.Service;
 import io.fabric8.kubernetes.api.model.v3_1.ServiceList;
 import io.fabric8.openshift.clnt.v3_1.OpenShiftClient;
-
+import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.containsString;

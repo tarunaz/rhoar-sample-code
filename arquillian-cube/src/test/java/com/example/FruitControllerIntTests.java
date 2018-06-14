@@ -1,6 +1,5 @@
 package com.example;
 
-import com.jayway.restassured.builder.RequestSpecBuilder;
 //import io.fabric8.kubernetes.api.model.v3_1.Service;
 //import org.arquillian.cube.kubernetes.annotations.Named;
 //import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
@@ -10,11 +9,13 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import io.restassured.builder.RequestSpecBuilder;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
-import static com.jayway.restassured.RestAssured.given;
+import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 
