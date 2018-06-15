@@ -5,8 +5,8 @@
 
 	<extension qualifier="openshift">
 		<property name="app.name">fruit</property>
-		<property name="namespace.use.current">true</property>
-		<property name="env.init.enabled">false</property>
+		<property name="namespace.use.existing">fruit</property>
+		<property name="env.init.enabled">true</property>
 		<property name="cube.fmp.build">true</property>
 		<property name="enableImageStreamDetection">false</property>
 	</extension>
