@@ -58,7 +58,7 @@ public class FruitControllerWSTest {
 
 	@Test
 	public void testGreetingEndpoint() {
-		when().get().then().statusCode(200).body(containsString("Greetings from Spring Boot!"));
+		when().get().then().statusCode(200).body(containsString("[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
 	}
 
 	// @Test
