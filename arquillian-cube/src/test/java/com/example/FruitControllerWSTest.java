@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-
 import io.fabric8.kubernetes.api.model.v3_1.Service;
 import io.fabric8.kubernetes.api.model.v3_1.ServiceList;
 import io.fabric8.openshift.clnt.v3_1.OpenShiftClient;
@@ -32,12 +31,6 @@ import static io.restassured.RestAssured.given;
 @RunWith(ArquillianConditionalRunner.class)
 public class FruitControllerWSTest {
 
-//	@ArquillianResource
-//	private OpenShiftClient client;
-
-//	@ArquillianResource
-//	private ServiceList serviceList;
-
 	@AwaitRoute
 	@RouteURL("fruit")
 	private URL baseURL;
@@ -47,46 +40,15 @@ public class FruitControllerWSTest {
 		RestAssured.baseURI = baseURL.toString();
 	}
 
-	// @Named("fruit")
-	// @ArquillianResource
-	// Service fruit;
-
-	// @Before
-	// public void setUp() throws Exception {
-	// this.base = new URL("http://localhost:" + port + "/");
-	// }
-
 	@Test
-	public void testGreetingEndpoint() {
-		when().get().then().statusCode(200).body(containsString("[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
+	public void shouldGetAllFruits_Test() {
+		when().get().then().statusCode(200).body(containsString(
+				"[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
 	}
 
-	// @Test
-	// public void shouuldGetAllFruits_Test() {
-	//
-	// assertThat(fruit).isNotNull();
-	// assertThat(fruit.getSpec()).isNotNull();
-	// assertThat(fruit.getSpec().getPorts()).isNotNull();
-	// assertThat(fruit.getSpec().getPorts()).isNotEmpty();
-
-	// int expectedFruitCount = 0;
-	//
-	// final String actualFruitCount = RestAssured.get(base.toExternalForm()
-	// + "rest/").asString();
-	//
-	// assertEquals(actualFruitCount, expectedFruitCount);
-	// }
-
-	// @Test
-	// public void testServicesInjection() {
-	// assertNotNull(serviceList);
-	// assertEquals(1, serviceList.getItems().size());
-	// assertEquals("fruit",
-	// serviceList.getItems().get(0).getMetadata().getName());
-	//
-	// assertNotNull(fruit);
-	// assertEquals("fruit", fruit.getMetadata().getName());
-	//
-	// }
+	@Test
+	public void shouldGetFruitById_Test() {
+		when().get("1").then().statusCode(200).body(containsString("[{\"id\":1,\"name\":\"Cherry\"}"));
+	}
 
 }
