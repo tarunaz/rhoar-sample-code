@@ -22,7 +22,6 @@ import io.restassured.RestAssured;
 public class FruitControllerIntTests {
 
 	@AwaitRoute
-	//@RouteURL("fruit")
 	@RouteURL("${app.name}")
 	private URL baseURL;
 
