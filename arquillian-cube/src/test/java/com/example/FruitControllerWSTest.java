@@ -48,7 +48,7 @@ public class FruitControllerWSTest {
 
 	@Test
 	public void shouldGetFruitById_Test() {
-		when().get("1").then().statusCode(200).body(containsString("[{\"id\":1,\"name\":\"Cherry\"}]"));
+		when().get("1").then().statusCode(200).body(containsString("{\"id\":1,\"name\":\"Cherry\"}"));
 	}
 
 }
