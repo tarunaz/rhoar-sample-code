@@ -19,7 +19,7 @@ import io.restassured.RestAssured;
 @Category(RequiresOpenshift.class)
 @RequiresOpenshift
 @RunWith(ArquillianConditionalRunner.class)
-public class FruitControllerWSTest {
+public class FruitControllerIntTest {
 
 	@AwaitRoute
 	@RouteURL("fruit")
