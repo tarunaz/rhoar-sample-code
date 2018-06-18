@@ -112,36 +112,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- <dependencies> <dependency> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-starter-web</artifactId> </dependency> <dependency> 
-		<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
-		</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-jpa</artifactId> 
-		</dependency> <dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
-		</dependency> <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
-		<version>${postgresql.version}</version> <scope>runtime</scope> </dependency> 
-		Spring Boot Test <dependency> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-starter-test</artifactId> <scope>test</scope> </dependency> 
-		Rest Assured Test <dependency> <groupId>com.jayway.restassured</groupId> 
-		<artifactId>rest-assured</artifactId> <version>2.9.0</version> <scope>test</scope> 
-		</dependency> Arquillian Cube Dependencies <dependency> <groupId>org.arquillian.cube</groupId> 
-		<artifactId>arquillian-cube-openshift</artifactId> <scope>test</scope> </dependency> 
-		<dependency> <groupId>org.arquillian.cube</groupId> <artifactId>arquillian-cube-requirement</artifactId> 
-		<scope>test</scope> </dependency> <dependency> <groupId>org.jboss.arquillian.junit</groupId> 
-		<artifactId>arquillian-junit-standalone</artifactId> <version>1.4.0.Final</version> 
-		<scope>test</scope> </dependency> <dependency> <groupId>io.fabric8</groupId> 
-		<artifactId>openshift-client</artifactId> <version>2.2.14</version> <scope>test</scope> 
-		</dependency> <dependency> <groupId>org.arquillian.cube</groupId> <artifactId>arquillian-cube-openshift-starter</artifactId> 
-		<scope>test</scope> </dependency> <dependency> <groupId>io.rest-assured</groupId> 
-		<artifactId>rest-assured</artifactId> <version>3.1.0</version> <scope>test</scope> 
-		</dependency> </dependencies> <build> <testResources> <testResource> <directory>src/test/resources</directory> 
-		<filtering>true</filtering> </testResource> </testResources> <plugins> <plugin> 
-		<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
-		<configuration> <profiles> <profile>local</profile> </profiles> <classifier>exec</classifier> 
-		</configuration> <executions> <execution> <goals> <goal>repackage</goal> 
-		</goals> </execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-		<artifactId>maven-compiler-plugin</artifactId> <version>3.7.0</version> </plugin> 
-		</plugins> </build> -->
 	<profiles>
 		<profile>
 			<id>openshift</id>
@@ -172,30 +142,5 @@
 				</plugins>
 			</build>
 		</profile>
-		<!-- <profile>
-			<id>openshift-it</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-failsafe-plugin</artifactId>
-						<configuration>
-							<additionalClasspathElements>
-								<additionalClasspathElement>${project.build.outputDirectory}/META-INF/fabric8
-								</additionalClasspathElement>
-							</additionalClasspathElements>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>integration-test</goal>
-									<goal>verify</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile> -->
 	</profiles>
 </project>

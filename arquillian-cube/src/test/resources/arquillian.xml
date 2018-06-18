@@ -10,10 +10,4 @@
 		<property name="cube.fmp.build">true</property>
 		<property name="enableImageStreamDetection">false</property>
 	</extension>
-
-	<!-- <extension qualifier="openshift"> <property name="cube.fmp.profiles">openshift, 
-		openshift-it</property> <property name="cube.fmp.build">true</property> <property 
-		name="env.init.enabled">true</property> <property name="namespace.use.current">dev</property> 
-		<property name="cube.username">username</property> <property name="cube.password">password</property> 
-		</extension> -->
 </arquillian>
