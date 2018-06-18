@@ -22,6 +22,7 @@
 
 		<version.arquillian-cube.bom>1.15.3</version.arquillian-cube.bom>
 		<version.fabric8.maven.plugin>3.5.38</version.fabric8.maven.plugin>
+		<version.io.rest-assured.rest-assured>3.1.0</version.io.rest-assured.rest-assured>
 		<version.spring-boot.bom>1.5.12.Final-redhat-1</version.spring-boot.bom>
 	</properties>
 
@@ -75,7 +76,7 @@
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>3.1.0</version>
+			<version>${version.io.rest-assured.rest-assured}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -120,17 +121,6 @@
 					<plugin>
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
-						<version>3.5.38</version>
-						<!-- <executions>
-							<execution>
-								<id>fmp</id>
-								<phase>package</phase>
-								<goals>
-									<goal>build</goal>
-									<goal>deploy</goal>
-								</goals>
-							</execution>
-						</executions> -->
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
