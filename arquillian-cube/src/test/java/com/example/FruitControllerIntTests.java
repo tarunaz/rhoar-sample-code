@@ -1,69 +1,39 @@
 package com.example;
 
-//import io.fabric8.kubernetes.api.model.v3_1.Service;
-//import org.arquillian.cube.kubernetes.annotations.Named;
-//import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
-//import org.arquillian.cube.openshift.impl.enricher.RouteURL;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import io.restassured.builder.RequestSpecBuilder;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-
-import static io.restassured.RestAssured.given;
-import static org.assertj.core.api.Assertions.assertThat;
+import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.containsString;
 
-//@RunWith(Arquillian.class)
+import java.net.URL;
+
+import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
+import org.arquillian.cube.openshift.impl.enricher.RouteURL;
+import org.arquillian.cube.openshift.impl.requirement.RequiresOpenshift;
+import org.arquillian.cube.requirement.ArquillianConditionalRunner;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+import io.restassured.RestAssured;
+
+@Category(RequiresOpenshift.class)
+@RequiresOpenshift
+@RunWith(ArquillianConditionalRunner.class)
 public class FruitControllerIntTests {
 
-   // @RouteURL("fruits")
-    //@AwaitRoute
-    private URL route;
+	@AwaitRoute
+	//@RouteURL("fruit")
+	@RouteURL("${app.name}")
+	private URL baseURL;
 
-   // @Named("fruits")
-    //@ArquillianResource
-    //Service fruits;
+	@Before
+	public void setup() throws Exception {
+		RestAssured.baseURI = baseURL.toString();
+	}
 
-    //@Test
-    public void test_VerifyFruitsServiceIsNotNull() throws IOException {
-      //  assertThat(fruits).isNotNull();
-        //assertThat(fruits.getSpec()).isNotNull();
-        //assertThat(fruits.getSpec().getPorts()).isNotNull();
-        //assertThat(fruits.getSpec().getPorts()).isNotEmpty();
-    }
-
-   // @Test
-    public void test_FruitsGetAllIsAvailable() {
-        RequestSpecBuilder requestSpecBuilder = getRequestSpecBuilder();
-
-        given(requestSpecBuilder.build())
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body(containsString("Arni"));
-    }
-
-    //@Test
-    public void test_FruitsGetByIdIsAvailable() {
-        RequestSpecBuilder requestSpecBuilder = getRequestSpecBuilder();
-
-        given(requestSpecBuilder.build())
-                .param("id", "1000")
-                .when().get()
-                .then()
-                .statusCode(200)
-                .body(containsString("Duke Nukem"));
-    }
-
-    private RequestSpecBuilder getRequestSpecBuilder() {
-        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
-        requestSpecBuilder.setBaseUri(String.format("http://%s/api/fruits/", Objects.requireNonNull(route).getHost()));
-        return requestSpecBuilder;
-    }
+	@Test
+	public void shouldGetAllFruits_Test() {
+		when().get().then().statusCode(200).body(containsString(
+				"[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
+	}
 }
