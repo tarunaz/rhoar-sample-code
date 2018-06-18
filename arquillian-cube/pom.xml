@@ -121,7 +121,7 @@
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
 						<version>3.5.38</version>
-						<executions>
+						<!-- <executions>
 							<execution>
 								<id>fmp</id>
 								<phase>package</phase>
@@ -130,7 +130,7 @@
 									<goal>deploy</goal>
 								</goals>
 							</execution>
-						</executions>
+						</executions> -->
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
