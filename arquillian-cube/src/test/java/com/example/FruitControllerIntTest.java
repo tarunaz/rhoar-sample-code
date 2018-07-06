@@ -1,6 +1,8 @@
 package com.example;
 
-import static io.restassured.RestAssured.when;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.CoreMatchers.containsString;
 
 import java.net.URL;
@@ -33,8 +35,9 @@ public class FruitControllerIntTest {
 
 	@Test
 	public void shouldGetAllFruits_Test() {
-		when().get().then().statusCode(200).body(containsString(
-				"[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
+		//when().get().then().statusCode(200).body(containsString(
+			//	"[{\"id\":1,\"name\":\"Cherry\"},{\"id\":2,\"name\":\"Apple\"},{\"id\":3,\"name\":\"Banana\"}]"));
+		when().get().then().statusCode(200).body("name", hasItems("Cherry", "Apple", "Banana"));
 	}
 
 }
