@@ -2,6 +2,7 @@ package com.example;
 
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.net.URL;
 
