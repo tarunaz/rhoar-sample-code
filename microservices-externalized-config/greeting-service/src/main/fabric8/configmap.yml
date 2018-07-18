@@ -7,5 +7,3 @@ metadata:
 data:
   application.properties: |-
     greeting.message=Hola, you picked %s as your favorite fruit!
-  
-  
