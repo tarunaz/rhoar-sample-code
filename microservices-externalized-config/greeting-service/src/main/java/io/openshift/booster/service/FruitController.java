@@ -29,11 +29,6 @@ public class FruitController {
 	@Autowired
 	private MessageProperties properties;
 
-	@Autowired
-	public FruitController(MessageProperties properties) {
-		this.properties = properties;
-	}
-
 	@RequestMapping("/api/greeting")
 	public Message greeting(@RequestParam(value = "name", defaultValue = "Banana") String name) {
 		Objects.requireNonNull(properties.getMessage(), "Greeting message was not set in the properties");
