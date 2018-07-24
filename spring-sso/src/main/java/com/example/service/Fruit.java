@@ -1,7 +1,9 @@
 package com.example.service;
 
+import javax.persistence.*;
+
 public class Fruit {
-	
+
 	private String name;
 
 	public String getName() {
@@ -11,5 +13,4 @@ public class Fruit {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
