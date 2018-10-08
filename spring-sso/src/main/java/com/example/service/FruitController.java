@@ -27,7 +27,7 @@ import java.util.List;
 public class FruitController {
 
 	@Autowired
-	FruitRepository repository; // Ignore this
+	FruitRepository repository;
 
 	@GetMapping
 	public List<Fruit> getAll() {
