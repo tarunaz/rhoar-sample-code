@@ -50,7 +50,7 @@
         "containers": [
           {
             "name": "postgres",
-            "image": "registry.centos.org/sclo/postgresql-95-centos7:latest",
+            "image": "openshift/postgresql-92-centos7",
             "ports": [
               {
                 "containerPort": 5432,
