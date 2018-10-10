@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: headerFragment">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>SSO with KeyCloak</h1>
+		</div>
+		<div>
+			<p>This application demonstrates how Keycloak can be used to secure a Spring Boot application.</p>
+
+			<h2>Secured Resource</h2>
+			<div class="well">
+				<a th:href="@{/secured}">Click Here</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

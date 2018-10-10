@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: headerFragment">
+</head>
+<body>
+	<div id="container">
+		<h1>
+			Hello, <span th:text="${username}">--name--</span>.
+		</h1>
+
+		<p>This resource is secured by Keycloak and can be viewed since the current user has autheniticated with Keycloak and has the "user" role.</p>
+	</div>
+
+	<a href="/logout" id="logout">Logout</a>
+
+</body>
+</html>
