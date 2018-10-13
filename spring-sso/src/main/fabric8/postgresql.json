@@ -68,7 +68,7 @@
               },
               {
                 "name": "POSTGRESQL_DATABASE",
-                "value": "userdb"
+                "value": "keycloak"
               },
               {
                 "name": "POSTGRESQL_ADMIN_PASSWORD",
